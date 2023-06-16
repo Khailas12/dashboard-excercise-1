@@ -8,27 +8,33 @@ import { DashboardService } from '../services/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
   title = 'Dashboard';
-  years: number[] = [2021, 2022, 2023]
+  years: any[] = [];
   dashboardData: any[] = [];
   selectedYear: number | null = null;
-  
-  constructor(private dashbordService: DashboardService) { }
+
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
     this.getDashboardData();
+    this.getYears();
   }
 
   selectYear(year: number | null): void {
     this.selectedYear = year;
-    // Implement any further logic based on the selected year
   }
-  
+
   getDashboardData(): void {
-    this.dashbordService.getConditionData().subscribe({
+    this.dashboardService.getConditionData().subscribe({
       next: (dashboardData) => {
         console.log('===', dashboardData);
         this.dashboardData = dashboardData.data;
       }
+    });
+  }
+
+  getYears(): void {
+    this.dashboardService.getYears().subscribe((years) => {
+      this.years = years;
     });
   }
 }

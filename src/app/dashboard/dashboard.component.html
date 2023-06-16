@@ -4,15 +4,8 @@
   </div>
   <div class="dropdowns-container">
     <!-- Dropdown 1 -->
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="yearDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        All Years
-      </button>
-      <div class="dropdown-menu" aria-labelledby="yearDropdown">
-        <a class="dropdown-item" href="#" (click)="selectYear(null)">All Years</a>
-        <a class="dropdown-item" href="#" *ngFor="let year of years" (click)="selectYear(year)">{{ year }}</a>
-      </div>
-    </div>
+    <p-dropdown [options]="years" [(ngModel)]="selectedYear" optionLabel="label" [style]="{'width': '150px'}"></p-dropdown>
+
 
     <!-- Dropdown 2 -->
     <div class="dropdown">

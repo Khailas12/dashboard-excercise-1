@@ -1,11 +1,8 @@
 .title-container {
   display: flex;
-  justify-content: left;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  align-items: center;
   margin-left: 40px;
 }
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -34,9 +31,9 @@
 .card-count {
   margin-top: 8px;
 }
-
 .header-container {
   display: flex;
+  margin-top: 80px; /* Update the margin-top value to 120px */
   justify-content: space-between;
   align-items: center;
 }
@@ -47,10 +44,10 @@
 }
 
 .btn-container {
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .btn {
-  margin-left: 20px;
+  margin-left: 10px;
   margin-right: 40px;
 }

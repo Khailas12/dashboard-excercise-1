@@ -1,24 +1,20 @@
 <div class="header-container">
   <div class="title-container">
-    <h2 [textContent]="title"></h2>
+    <h2>{{ title }}</h2>
   </div>
-  <div class="dropdowns-container">
-    <!-- Dropdown 1 -->
-    <p-dropdown [options]="years" [(ngModel)]="selectedYear" optionLabel="label" [style]="{'width': '150px'}"></p-dropdown>
+  <div>
+    <select name="Year" id="Year" class="year_dropdwon" [(ngModel)]="year" style="width: 150px; height: 40px;">
+      <option *ngFor="let years of totalYears" [value]="years.value">{{ years.label }}</option>
+    </select>
 
+    <span style="margin-left: 10px;"></span>
 
-    <!-- Dropdown 2 -->
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown 2
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdown2">
-        <!-- Dropdown 2 content -->
-      </div>
-    </div>
-    <!-- Button -->
-    <button class="btn btn-primary ml-2 mr-4">Search</button>
-  </div>
+    <select name="all" id="all" class="year_dropdwon" [(ngModel)]="users" style="width: 150px; height: 40px;">
+      <option *ngFor="let user of totalUsers" [value]="user.value">{{ user.label }}</option>
+    </select>
+
+    <button class="btn btn-primary ml-2 mr-4" [disabled]="!searchButtonDisable()">Search</button>
+  </div> 
 </div>
 
 <div *ngIf="dashboardData.length > 0">

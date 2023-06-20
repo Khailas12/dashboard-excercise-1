@@ -8,19 +8,27 @@ import { DashboardService } from '../services/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
   title = 'Dashboard';
-  years: any[] = [];
   dashboardData: any[] = [];
-  selectedYear: number | null = null;
+  year: string = '';
+  users: string = '';
 
-  constructor(private dashboardService: DashboardService) {}
+  totalYears = [
+    { label: 'All Year', value: 'all_year' },
+    { label: '2023', value: '2023' },
+    { label: '2022', value: '2022' },
+    { label: '2021', value: '2021' }
+  ];
+
+  totalUsers = [
+    { label: 'All', value: 'All' },
+    { label: 'Admin', value: 'Admin' },
+    { label: 'User', value: 'User' }
+  ];
+
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.getDashboardData();
-    this.getYears();
-  }
-
-  selectYear(year: number | null): void {
-    this.selectedYear = year;
   }
 
   getDashboardData(): void {
@@ -32,9 +40,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getYears(): void {
-    this.dashboardService.getYears().subscribe((years) => {
-      this.years = years;
-    });
+  searchButtonDisable(): boolean {
+    return !!this.year && !!this.users;
   }
 }

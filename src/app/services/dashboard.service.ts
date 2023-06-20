@@ -47,16 +47,4 @@ export class DashboardService {
   getConditionData(): Observable<any> {
     return of(this.dashboardData);
   }
-
-  getYears(): Observable<any[]> {
-    const years = [
-      { label: 'All Years', value: null },
-      { label: '2020', value: 2020 },
-      { label: '2021', value: 2021 },
-      { label: '2022', value: 2022 },
-      { label: '2023', value: 2023 }
-    ];
-
-    return of(years);
-  }
 }
